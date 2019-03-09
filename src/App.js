@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import DateHeader from './components/DateHeader'
+import DateHeader from './components/DateHeader';
+import OrderList from './components/OrderList';
 
 class App extends Component {
   render() {
@@ -11,6 +12,9 @@ class App extends Component {
           <DateHeader />
           <h2>Perfectly Ground Work Orders</h2>
           <button>Create Order</button>
+        </div>
+        <div>
+          <OrderList />
         </div>
       </div>
     );

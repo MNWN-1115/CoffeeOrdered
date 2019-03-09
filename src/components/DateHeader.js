@@ -3,7 +3,7 @@ import moment from 'moment'
 
 const DateHeader = () => {
     return (
-        <div class='date'>
+        <div className='date'>
             <p>{moment().format('MMM')}</p>
             <p>{moment().format("Do")}</p>
         </div>

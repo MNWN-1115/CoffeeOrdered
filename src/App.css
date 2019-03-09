@@ -49,3 +49,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.NavBar {
+    display: flex;
+    flex-direction: row;
+}

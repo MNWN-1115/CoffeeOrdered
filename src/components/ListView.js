@@ -3,6 +3,7 @@ import ListViewItem from './ListViewItem';
 // import fakeData from '../Dummydata/fakeData';
 import NavBar from './NavBar';
 import request from '../Helpers/request';
+import axios from 'axios';
 
 class ListView extends Component {
     constructor (props) {
@@ -16,7 +17,13 @@ class ListView extends Component {
     }
 
     componentDidMount() {
-        
+        console.log('reached component')
+        fetch("http://localhost:3001/getOrders")
+            .then(data => {
+                console.log('data' , JSON.stringify(data.body))
+                // return data.json()
+            })
+            .then(res => this.setState({ currentOrders: res.data }));
     }
 
     handleButtonClick(direction) {

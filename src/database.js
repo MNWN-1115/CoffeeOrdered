@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/27017');
+// mongoose.connect('mongodb://localhost/27017/coffeeOrder');
 
-const coffeeSchema = new mongoose.Schema({
+const CoffeeOrder = new mongoose.Schema({
   Coffee: String,
   Method: String,
   Number_of_Cases: Number,
@@ -11,7 +11,7 @@ const coffeeSchema = new mongoose.Schema({
   Order: String
 });
 
-var CoffeeOrder = mongoose.model('CoffeeOrder', coffeeSchema);
+// var CoffeeOrder = mongoose.model('CoffeeOrder', coffeeOrder);
 
 const saveOrder = (data) => {
   var order = new CoffeeOrder(data);
@@ -21,12 +21,11 @@ const saveOrder = (data) => {
 }
 
 const findOrder = (req, res) => {
-  CoffeeOrder.find((err, data) => {
+  CoffeeOrder.find({}, (err, data) => {
+    console.log(data, err)
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   }) 
 }
 
-export {
-  saveOrder, findOrder
-}
+module.exports = mongoose.model("Data", CoffeeOrder);

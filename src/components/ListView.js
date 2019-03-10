@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import ListViewItem from './ListViewItem';
-import fakeData from '../Dummydata/fakeData';
+// import fakeData from '../Dummydata/fakeData';
 import NavBar from './NavBar';
+import request from '../Helpers/request';
 
 class ListView extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            currentOrders: fakeData,
+            currentOrders: [],
             pageNumber: 1,
             pageLimits: [1,1]
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
+    }
+
+    componentDidMount() {
+        
     }
 
     handleButtonClick(direction) {

@@ -13,13 +13,20 @@ const coffeeSchema = new mongoose.Schema({
 
 var CoffeeOrder = mongoose.model('CoffeeOrder', coffeeSchema);
 
-export default saveOrder = (data) => {
+const saveOrder = (data) => {
   var order = new CoffeeOrder(data);
   order.save((err) => {
     if (err) console.log(err);
   })
 }
 
-export default findOrder = () => {
-  CoffeeOrder.find();
+const findOrder = (req, res) => {
+  CoffeeOrder.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  }) 
+}
+
+export {
+  saveOrder, findOrder
 }
